@@ -14,7 +14,6 @@ namespace CalcBack.Controllers
     public class CalcController : ControllerBase
     {
 
-        //[HttpPost("{param1}/{param2}/{act}")]
         [HttpGet("[action]/{param1}/{param2}/{act}")]
         public ActionResult<float> Count(float param1, float param2, string act)
         {
