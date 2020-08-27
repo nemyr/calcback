@@ -24,5 +24,9 @@ namespace CalcBack.Controllers
             return counter.Count(param1, param2);
         }
 
+        [HttpGet]
+        public ActionResult<string> Index() {
+            return "noting here";
+        }
     }
 }
