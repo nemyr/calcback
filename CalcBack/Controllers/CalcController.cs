@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using CalcBack.Classes;
-using CalcBack.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,18 +11,16 @@ namespace CalcBack.Controllers
     [ApiController]
     public class CalcController : ControllerBase
     {
-        private ICounterFactory counterFactory;
-
-        public CalcController(ICounterFactory counterFactory)
+        [HttpGet("[action]/{param1}/{param2}")]
+        public ActionResult<float> Add(float param1, float param2)
         {
-            this.counterFactory = counterFactory;
+            return param1 + param2;
         }
 
-        [HttpGet("[action]/{param1}/{param2}/{act}")]
-        public ActionResult<float> Count(float param1, float param2, string act)
+        [HttpGet("[action]/{param1}/{param2}")]
+        public ActionResult<float> Sub(float param1, float param2)
         {
-            ICounter counter = counterFactory.GetCounter(act);
-            return counter.Count(param1, param2);
+            return param1 - param2;
         }
 
         [HttpGet]
